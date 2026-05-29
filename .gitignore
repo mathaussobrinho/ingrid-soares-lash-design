@@ -1,0 +1,8 @@
+# Python (scripts de tratamento de imagem)
+tools/__pycache__/
+*.pyc
+
+# Sistema operacional
+Thumbs.db
+.DS_Store
+desktop.ini

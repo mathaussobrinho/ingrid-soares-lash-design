@@ -1,0 +1,10 @@
+Coloque aqui as imagens do site.
+
+Foto da Ingrid (seção "Sobre"):
+1. Salve a foto nesta pasta com o nome: ingrid.jpg (ou .png)
+2. No arquivo index.html, na seção "Sobre / Boas-vindas", troque o bloco
+   <div class="photo-placeholder"> ... </div>
+   por:
+   <img src="assets/ingrid.jpg" alt="Ingrid Soares, Lash Designer" />
+
+Dica: use uma foto na vertical (proporção aproximada 4:5) para encaixar bem na moldura.
