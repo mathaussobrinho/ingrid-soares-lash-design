@@ -42,6 +42,15 @@
   const reveals = document.querySelectorAll(".reveal");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  const revealInView = () => {
+    reveals.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 40 && rect.bottom > 40) {
+        el.classList.add("visible");
+      }
+    });
+  };
+
   if (reduceMotion || !("IntersectionObserver" in window)) {
     reveals.forEach((el) => el.classList.add("visible"));
   } else {
@@ -54,9 +63,13 @@
           }
         });
       },
-      { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
+      { threshold: 0.08, rootMargin: "0px 0px -20px 0px" }
     );
     reveals.forEach((el) => observer.observe(el));
+    revealInView();
+    window.addEventListener("load", revealInView);
+    window.addEventListener("hashchange", () => setTimeout(revealInView, 150));
+    window.addEventListener("scroll", revealInView, { passive: true });
   }
 
   // Ano dinâmico no footer
